@@ -25,6 +25,7 @@
         <nav class="header-nav">
           <a href="#overview">Overview</a>
           <a href="#demo">Demo</a>
+          <a href="#checkin">Check In</a>
           <a href="#sprint">Sprint</a>
           <a href="#levelup">Level Up</a>
         </nav>
@@ -351,6 +352,76 @@
 <span class="t-var">attendeeCount</span><span class="t-op">++</span><span class="t-punct">;</span>
 <span class="t-obj">console</span><span class="t-punct">.</span><span class="t-method">log</span><span class="t-punct">(</span><span class="t-str">"Count: "</span> <span class="t-op">+</span> <span class="t-var">attendeeCount</span><span class="t-punct">);</span></code></pre>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LIVE CHECK-IN ── -->
+    <section class="checkin-section" id="checkin">
+      <div class="container checkin-layout">
+        <div class="checkin-copy">
+          <p class="section-eyebrow">Live Event Tool</p>
+          <h2 class="section-title">Check In An Attendee</h2>
+          <p class="section-body">
+            Enter attendee details below. JavaScript will add each person to the
+            check-in list and update the total automatically.
+          </p>
+          <div class="checkin-stat" aria-live="polite">
+            <span class="checkin-stat-number" id="attendee-count">0</span>
+            <span>attendees checked in</span>
+          </div>
+        </div>
+
+        <div class="checkin-panel">
+          <form id="checkin-form" class="checkin-form">
+            <div class="form-field">
+              <label for="attendee-name">Full name</label>
+              <input
+                id="attendee-name"
+                name="name"
+                type="text"
+                required
+                maxlength="60"
+                autocomplete="name"
+                placeholder="e.g. Jordan Lee"
+              />
+            </div>
+            <div class="form-field">
+              <label for="attendee-email">Email address</label>
+              <input
+                id="attendee-email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                placeholder="jordan@example.com"
+              />
+            </div>
+            <div class="form-field">
+              <label for="attendee-session">Session</label>
+              <select id="attendee-session" name="session" required>
+                <option value="">Choose a session</option>
+                <option value="JavaScript Foundations">
+                  JavaScript Foundations
+                </option>
+                <option value="Web Development Basics">
+                  Web Development Basics
+                </option>
+                <option value="Building with APIs">Building with APIs</option>
+              </select>
+            </div>
+            <button class="checkin-button" type="submit">
+              Check in attendee
+            </button>
+            <p class="form-message" id="form-message" role="status"></p>
+          </form>
+
+          <div class="attendee-list-wrap">
+            <h3>Checked-in attendees</h3>
+            <ul class="attendee-list" id="attendee-list">
+              <li class="empty-state">No attendees checked in yet.</li>
+            </ul>
           </div>
         </div>
       </div>
